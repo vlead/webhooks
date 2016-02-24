@@ -419,6 +419,11 @@ api = Blueprint('APIs', __name__)
 
 logger = create_logger("api")
 
+@api.route("/")
+def index():
+    logger.debug("helloooooo")
+    return render_template("index.html")
+
 <<push-event>>
 
 #+END_SRC
