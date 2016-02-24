@@ -252,14 +252,11 @@ print "src package"
 #+BEGIN_SRC sh
 
 #!/bin/bash
-echo "export http_proxy=\"http://proxy.iiit.ac.in:8080\" " >> /etc/profile
-echo "export https_proxy=\"http://proxy.iiit.ac.in:8080\" " >> /etc/profile
-echo "http_proxy=\"http://proxy.iiit.ac.in:8080\" " >> /etc/environment
-echo "https_proxy=\"http://proxy.iiit.ac.in:8080\" " >> /etc/environment
 
 # Install pre-requsite dependencies: python-dev, mysqld-dev, setuptools,
 # apache, mod_wsgi etc.
 echo "Installing pre-requisite dependencies.."
+apt-get -y update
 apt-get install -y python-dev python-setuptools apache2 libapache2-mod-wsgi
 if [[ $? -ne 0 ]]; then
   echo "FATAL: Installing pre-requisite dependencies failed!"
