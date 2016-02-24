@@ -49,7 +49,7 @@ init: pull-literate-tools
 build: init write-version
 	emacs  --script elisp/publish.el
 	rm -f ${BUILD_DEST}/docs/*.html~
-	cp -R src/templates/ ${BUILD_DEST}/code/src/
+	rsync -a src/templates ${BUILD_DEST}/code/src/
 
 # get the latest commit hash and its subject line
 # and write that to the VERSION file

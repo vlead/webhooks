@@ -236,6 +236,9 @@ ERROR = 40
 
 # Log level for the application
 LOG_LEVEL = DEBUG
+
+ALLOWED_ORIGINS = "['*']"
+
 #+END_SRC
 
 ** Python initialization
@@ -321,11 +324,11 @@ fi
 
 update_apache_config() {
   PROC_NAME="webhooks"
-  WSGI_SCRIPT="webhooks.wsgi"
+  WSGI_SCRIPT="/var/www/webhooks.wsgi"
   APACHE_VHOST_FILE="/etc/apache2/sites-available/default"
 
   sed -i "/<\/VirtualHost>/i \
-    WSGIScriptAlias / $ABS_PATH_DS/$WSGI_SCRIPT
+    WSGIScriptAlias / $WSGI_SCRIPT
   " $APACHE_VHOST_FILE
 }
 
@@ -413,7 +416,6 @@ from flask import current_app
 from flask import Flask, redirect, url_for
 from werkzeug import secure_filename
 
-from utils import parse_request, jsonify_list
 from app_logger import create_logger
 
 api = Blueprint('APIs', __name__)
