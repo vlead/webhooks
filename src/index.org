@@ -272,7 +272,7 @@ fi
 
 # Installing python dependencies
 echo "Installing dependencies.."
-python setup.py install
+pip install flask flask-cors flask-testing requests
 if [[ $? -ne 0 ]]; then
   echo "FATAL: Installation failed!"
   exit 1;
