@@ -44,7 +44,7 @@
             "cp -R ../build/code/* /var/www/",
             "chmod -R 755 /var/www",
             "mkdir /var/www/logs",
-            "chmod -R 777 /var/www/logs",
+            "chmod -R 777 /var/www/logs"
           ],
           "status": []
         }
@@ -67,7 +67,7 @@
         "installer": [
           "bash /var/www/setup.sh",
           "python /var/www/setup.py install",
-          "bash /var/www/configure.sh",
+          "bash /var/www/configure.sh"
         ],
         "lab_actions": {
           "init"    : [],
